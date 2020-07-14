@@ -1,12 +1,13 @@
 const path = require("path");
 
-module.exports = {
+const config = {
   context: __dirname,
-  entry: "./js/App.jsx",
+  entry: ["./js/App.jsx"],
   devtool: "cheap-eval-source-map",
   output: {
-    path: path.join(__dirname, "public"),
+    path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
+    publicPath: "/public/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -14,14 +15,20 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: true,
+    chunks: false,
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
+        include: [
+          path.resolve("js"),
+          path.resolve("node_modules/preact-compat/src"),
+        ],
       },
     ],
   },
 };
+
+module.exports = config;

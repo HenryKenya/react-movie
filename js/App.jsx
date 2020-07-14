@@ -1,22 +1,21 @@
 import React from "react";
 import { render } from "react-dom";
 
-const SecondComponent = ({ title }) => {
-  return React.createElement("div", {}, React.createElement("h2", {}, title));
-};
-
-const FirstComponent = () => {
-  return React.createElement(
-    "div",
-    {},
-    React.createElement("h1", {}, "Heading"),
-    React.createElement(SecondComponent, {
-      title: "Rick and Morty",
-    }),
-    React.createElement(SecondComponent, {
-      title: "Silicon Valley",
-    })
+const SecondComponent = (props) => {
+  return (
+    <div>
+      <h1>{props.title}</h1>
+    </div>
   );
 };
 
-render(React.createElement(FirstComponent), document.getElementById("app"));
+const FirstComponent = () => {
+  return (
+    <div>
+      <h1>Heading</h1>
+      <SecondComponent title="Rick and Morty" />
+    </div>
+  );
+};
+
+render(<FirstComponent />, document.getElementById("app"));
