@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "api": "node ratingsAPI.js"
+    "api": "node ratingsAPI.js",
+    "format": "prettier --write --single-quote --tab-width=120 --parser=flow   \"js/**/*.{js,jsx}\""
   },
   "dependencies": {
     "axios": "0.16.1",
