@@ -11,6 +11,7 @@ const config = {
   },
   devServer: {
     publicPath: "/public/",
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
