@@ -9,6 +9,9 @@ const config = {
     filename: "bundle.js",
     publicPath: "/public/",
   },
+  devServer: {
+    publicPath: "/public/",
+  },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
