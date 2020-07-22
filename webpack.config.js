@@ -1,8 +1,14 @@
 const path = require("path");
+const webpack = require("webpack");
 
 const config = {
   context: __dirname,
-  entry: ["./js/App.jsx"],
+  entry: [
+    "react-hot-loader/patch",
+    "webpack-dev-server/client?http://localhost:8080",
+    "webpack/hot/only-dev-server",
+    "./js/ClientApp.jsx",
+  ],
   devtool: "cheap-eval-source-map",
   output: {
     path: path.resolve(__dirname, "public"),
@@ -10,6 +16,7 @@ const config = {
     publicPath: "/public/",
   },
   devServer: {
+    hot: true,
     publicPath: "/public/",
     historyApiFallback: true,
   },
@@ -21,6 +28,10 @@ const config = {
     reasons: true,
     chunks: false,
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+  ],
   module: {
     rules: [
       {
