@@ -71,7 +71,8 @@
     "prettier": "2.0.5",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "15.5.4",
-    "webpack-dev-server": "2.4.5"
+    "webpack-dev-server": "2.4.5",
+    "redux-immutable-state-invariant": "2.1.0"
   },
   "name": "complete-intro-to-react",
   "version": "3.0.0",

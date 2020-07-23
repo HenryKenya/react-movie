@@ -1,12 +1,13 @@
 import { SET_SEARCH_TERM } from "./actions";
 
 const DEFAULT_STATE = {
-  searchTerm: "something",
+  searchTerm: "",
 };
 
-const setSearchTerm = (state, action) => {
-  return { ...state, searchTerm: action.payload };
-};
+const setSearchTerm = (state, action) => ({
+  ...state,
+  searchTerm: action.payload,
+});
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
