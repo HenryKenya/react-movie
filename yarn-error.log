@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add global flow-typed
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add react-invariant-state-middleware
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:/opt/X11/bin:/Applications/Wireshark.app/Contents/MacOS
@@ -14,8 +14,17 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+  Error: https://registry.yarnpkg.com/react-invariant-state-middleware: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
+      at Request.emit (events.js:314:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
+      at Request.emit (events.js:314:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:420:28)
+      at IncomingMessage.emit (events.js:326:22)
+      at endReadableNT (_stream_readable.js:1226:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -23,7 +32,7 @@ npm manifest:
       "api": "node ratingsAPI.js",
       "build": "webpack",
       "watch": "webpack --watch",
-      "format": "prettier --write --single-quote --tab-width=2 --parser=flow   \"js/**/*.{js,jsx}\"",
+      "format": "prettier --write --single-quote --tab-length=120 --parser=flow   \"js/**/*.{js,jsx}\"",
       "lint": "eslint **/*.{js,jsx} --quiet",
       "dev": "webpack-dev-server",
       "test": "jest",
@@ -43,6 +52,7 @@ npm manifest:
       "compression": "1.6.2",
       "cors": "2.8.3",
       "express": "4.15.3",
+      "global": "^4.4.0",
       "lodash": "4.17.4",
       "preact": "8.1.0",
       "preact-compat": "3.16.0",
@@ -67,6 +77,7 @@ npm manifest:
       "babel-plugin-syntax-dynamic-import": "6.18.0",
       "babel-plugin-transform-class-properties": "6.24.1",
       "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
+      "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "1.5.1",
       "babel-preset-react": "6.24.1",
       "enzyme": "2.8.2",
@@ -89,7 +100,8 @@ npm manifest:
       "prettier": "2.0.5",
       "react-hot-loader": "3.0.0-beta.6",
       "react-test-renderer": "15.5.4",
-      "webpack-dev-server": "2.4.5"
+      "webpack-dev-server": "2.4.5",
+      "redux-immutable-state-invariant": "2.1.0"
     },
     "name": "complete-intro-to-react",
     "version": "3.0.0",
@@ -600,6 +612,11 @@ Lockfile:
     version "6.18.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
   
+  babel-plugin-syntax-object-rest-spread@^6.8.0:
+    version "6.13.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
+    integrity sha1-/WU28rzhODb/o6VFjEkDpZe7O/U=
+  
   babel-plugin-syntax-trailing-function-commas@^6.22.0:
     version "6.22.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
@@ -815,6 +832,14 @@ Lockfile:
       babel-plugin-syntax-flow "^6.18.0"
       babel-runtime "^6.22.0"
   
+  babel-plugin-transform-object-rest-spread@^6.26.0:
+    version "6.26.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.26.0.tgz#0f36692d50fef6b7e2d4b3ac1478137a963b7b06"
+    integrity sha1-DzZpLVD+9rfi1LOsFHgTepY7ewY=
+    dependencies:
+      babel-plugin-syntax-object-rest-spread "^6.8.0"
+      babel-runtime "^6.26.0"
+  
   babel-plugin-transform-react-display-name@^6.23.0:
     version "6.23.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-display-name/-/babel-plugin-transform-react-display-name-6.23.0.tgz#4398910c358441dc4cef18787264d0412ed36b37"
@@ -935,6 +960,14 @@ Lockfile:
     dependencies:
       core-js "^2.4.0"
       regenerator-runtime "^0.10.0"
+  
+  babel-runtime@^6.26.0:
+    version "6.26.0"
+    resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+    integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+    dependencies:
+      core-js "^2.4.0"
+      regenerator-runtime "^0.11.0"
   
   babel-template@^6.16.0, babel-template@^6.24.1, babel-template@^6.3.0, babel-template@^6.7.0:
     version "6.24.1"
@@ -2473,6 +2506,14 @@ Lockfile:
       min-document "^2.19.0"
       process "~0.5.1"
   
+  global@^4.4.0:
+    version "4.4.0"
+    resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
+    integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
+    dependencies:
+      min-document "^2.19.0"
+      process "^0.11.10"
+  
   globals@^9.0.0, globals@^9.14.0:
     version "9.17.0"
     resolved "https://registry.yarnpkg.com/globals/-/globals-9.17.0.tgz#0c0ca696d9b9bb694d2e5470bd37777caad50286"
@@ -2776,6 +2817,13 @@ Lockfile:
   invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
     version "2.2.2"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
+    dependencies:
+      loose-envify "^1.0.0"
+  
+  invariant@^2.1.0:
+    version "2.2.4"
+    resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
+    integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
     dependencies:
       loose-envify "^1.0.0"
   
@@ -3346,7 +3394,7 @@ Lockfile:
     dependencies:
       jsonify "~0.0.0"
   
-  json-stringify-safe@~5.0.1:
+  json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
     version "5.0.1"
     resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   
@@ -4267,6 +4315,11 @@ Lockfile:
     version "0.11.9"
     resolved "https://registry.yarnpkg.com/process/-/process-0.11.9.tgz#7bd5ad21aa6253e7da8682264f1e11d11c0318c1"
   
+  process@^0.11.10:
+    version "0.11.10"
+    resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
+    integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
+  
   process@~0.5.1:
     version "0.5.2"
     resolved "https://registry.yarnpkg.com/process/-/process-0.5.2.tgz#1638d8a8e34c2f440a91db95ab9aeb677fc185cf"
@@ -4535,6 +4588,14 @@ Lockfile:
       object-assign "^4.0.1"
       prop-types "^15.5.4"
   
+  redux-immutable-state-invariant@2.1.0:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/redux-immutable-state-invariant/-/redux-immutable-state-invariant-2.1.0.tgz#308fd3cc7415a0e7f11f51ec997b6379c7055ce1"
+    integrity sha512-3czbDKs35FwiBRsx/3KabUk5zSOoTXC+cgVofGkpBNv3jQcqIe5JrHcF5AmVt7B/4hyJ8MijBIpCJ8cife6yJg==
+    dependencies:
+      invariant "^2.1.0"
+      json-stringify-safe "^5.0.1"
+  
   redux-thunk@2.2.0:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
@@ -4557,6 +4618,11 @@ Lockfile:
   regenerator-runtime@^0.10.0:
     version "0.10.3"
     resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.10.3.tgz#8c4367a904b51ea62a908ac310bf99ff90a82a3e"
+  
+  regenerator-runtime@^0.11.0:
+    version "0.11.1"
+    resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+    integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
   
   regenerator-transform@0.9.11:
     version "0.9.11"
