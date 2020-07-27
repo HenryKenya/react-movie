@@ -27,6 +27,6 @@ const Search = (props: {
   </div>
 );
 
-const mapStateToProps = (state) => ({ searchTerm: state.searchTerm });
+const mapStateToProps = ({ searchTerm }) => ({ searchTerm });
 
 export default connect(mapStateToProps)(Search);

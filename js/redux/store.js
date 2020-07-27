@@ -1,3 +1,4 @@
+// @flow
 import { createStore, applyMiddleware } from "redux";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import reducer from "./reducers";
